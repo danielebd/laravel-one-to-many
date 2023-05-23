@@ -39,8 +39,8 @@ class UpdateProjectRequest extends FormRequest
             'created_by' => 'nullable|integer|min:0',
             'budget' => 'nullable|numeric|min:0',
             'image' => 'nullable|image|max:4000',
-            'switch' => 'boolean'
-
+            'switch' => 'boolean',
+            'type_id' => 'nullable|exists:types,id'
         ];
     }
 }

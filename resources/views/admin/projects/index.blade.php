@@ -20,9 +20,10 @@
                     <th scope="col">Title</th>
                     <th scope="col">Slug</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Image</th>
                     <th scope="col">Star Date</th>
                     <th scope="col">Completed</th>
-                    <th scope="col"></th>
+                    <th scope="col">Type</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,7 +35,8 @@
                         <td>@if ($project->image) img
                         @endif </td>
                         <td>{{ $project->start_date }}</td>
-                        <td>{{ $project->completed == 1 ? 'yes' : 'no' }}</td>
+                        <td>{{ $project->completed == 1 ? 'yes' : 'no' }}</td>                        <td>{{ $project->start_date }}</td>
+                        <td>{{ $project->type_id }}</td>
                         <td class="d-flex">
                             <a href="{{ route('admin.projects.show', $project->slug) }}"
                                 class="btn btn-sm btn-primary">Show</a>

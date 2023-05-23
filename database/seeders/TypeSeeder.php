@@ -17,7 +17,7 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
-        $types = ['Front-end', 'back-end', 'DBA'];
+        $types = ['Frontend', 'Backend', 'DBA', 'DataAnalitics'];
 
         //disattiva relazioni
         Schema::disableForeignKeyConstraints();
