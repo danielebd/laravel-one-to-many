@@ -20,11 +20,11 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        
+
         //importare i types all'interno del projects controller
         $projects = Project::all();
 
-        
+
         return view('admin.projects.index', compact('projects'));
     }
 
@@ -99,18 +99,20 @@ class ProjectController extends Controller
         $project->update($data);
         $project->slug = Str::slug($data['title']);
 
-        if(empty($data['switch'])){
-            Storage::delete($project->image);
+        if (empty($data['switch'])) {
+            if ($project->image) {
+                Storage::delete($project->image);
+            }
             $project->image = null;
         } else {
             if (isset($data['image'])) {
-                if($project->image){
+                if ($project->image) {
                     Storage::delete($project->image);
                 }
                 $project->image = Storage::put('uploads', $data['image']);
             }
         }
-        
+
         $project->save();
         session()->flash('success', 'Modifica avvenuta con successo.');
         return redirect()->route('admin.projects.index');
@@ -124,7 +126,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        if($project->image){
+        if ($project->image) {
             Storage::delete($project->image);
         }
 
