@@ -32,7 +32,7 @@
                                 class="btn btn-sm btn-primary">Show</a>
                             <a href="{{ route('admin.types.edit', $type->slug) }}"
                                 class="btn btn-sm btn-warning mx-3">Edit</a>
-                            <a href="" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#project-{{$type->id}}">Delete</a>
+                            <a href="" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#type-{{$type->id}}">Delete</a>
                         </td>
 
                     </tr>
@@ -42,7 +42,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="exampleModalLabel">Sei sicuro di voler cancellare
-                                        {{ $type->title }}?</h1>
+                                        {{ $type->name }}?</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>

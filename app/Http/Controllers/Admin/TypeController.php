@@ -48,9 +48,10 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function show(Type $type)
+    public function show(string $slug)
     {
-        //
+        $type = Type::where('slug', $slug)->first();
+        return view('admin.types.show', compact('type'));
     }
 
     /**
@@ -84,6 +85,10 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+
+        $type->delete();
+        session()->flash('success', 'Calcellazione avvenuta con successo.');
+
+        return redirect()->route('admin.types.index');
     }
 }
