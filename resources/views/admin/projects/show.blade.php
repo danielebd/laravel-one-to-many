@@ -10,6 +10,7 @@
         <div class="fs-5">Completed: {{ $project->completed == 1 ? 'yes' : 'no' }}</div>
         <div class="fs-5">Creared By: {{ $project->created_by }}</div>
         <div class="fs-5">Budget: {{ $project->budget }}</div>
+        <div class="fs-5">Type: {{ $project->type?->name ?: 'Nessuna Categoria' }}</div>
         @if ($project->image)
             <div class="fs-5">image: </div>
             <img src="{{ asset('storage/' . $project->image) }}" alt="">

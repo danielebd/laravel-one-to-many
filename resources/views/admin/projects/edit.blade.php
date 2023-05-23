@@ -64,6 +64,12 @@
                 <label for="image" class="form-label">Image</label>
                 <input class="form-control" type="file" id="image" name="image">
             </div>
+            <select class="form-select" aria-label="Default select example" name="type_id" id="type_id">
+                <option value="">Select Type</option>
+                @foreach ( $types as $type )
+                    <option value="{{ $type->id }}" {{ $project->type_id == $type->id ? 'selected' : '' }} {{old('type_id') == $type->id ? 'selected': ''}}>{{ $type->name }}</option>
+                @endforeach
+              </select>
             <br>
             <button type="submit" class="btn btn-primary">Edit</button>
         </form>
