@@ -20,8 +20,11 @@ class ProjectController extends Controller
      */
     public function index()
     {
+        
         //importare i types all'interno del projects controller
         $projects = Project::all();
+
+        
         return view('admin.projects.index', compact('projects'));
     }
 

@@ -36,7 +36,7 @@
                         @endif </td>
                         <td>{{ $project->start_date }}</td>
                         <td>{{ $project->completed == 1 ? 'yes' : 'no' }}</td>                        <td>{{ $project->start_date }}</td>
-                        <td>{{ $project->type_id }}</td>
+                        <td>{{ optional($project->type)->name }}</td>
                         <td class="d-flex">
                             <a href="{{ route('admin.projects.show', $project->slug) }}"
                                 class="btn btn-sm btn-primary">Show</a>
